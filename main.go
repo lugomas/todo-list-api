@@ -3,11 +3,12 @@ package main
 import (
 	"github.com/gorilla/mux"
 	"net/http"
+	"roadmaps/projects/todo-list-api/internal/handlers"
 )
 
 func main() {
 	r := mux.NewRouter()
-	r.HandleFunc("/register", Signup)
+	r.HandleFunc("/register", handlers.SignUpHandler).Methods("POST")
 	r.HandleFunc("/login", Login)
 	r.HandleFunc("/to-dos", TodosHandler)
 	r.HandleFunc("/to-dos/{id}", TodoHandler)
